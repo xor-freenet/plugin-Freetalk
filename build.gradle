@@ -176,5 +176,7 @@ test {
 clean {
 	[ 'build-test', 'test-coverage', 'dist' ].each { // Beyond defaults also delete Ant's output
 		delete "${projectDir}/" + it }
+	
+	dependsOn updateDb4oGit // Get db4o git repository so the below ant command has its build.xml
 	doLast { exec { workingDir 'db4o-7.4' ; commandLine 'ant','clean' } }
 }
