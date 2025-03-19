@@ -68,7 +68,6 @@ You can:
 
 Clone the [fred](https://github.com/freenet/fred) and plugin-Freetalk repositories into the same
 parent directory.  
-Initialize the git submodules by `( cd plugin-Freetalk && git submodule update --init )`.  
 Compile fred by command line using `( cd fred && ./gradlew jar copyRuntimeLibs )`, or for
 compiling it with Eclipse use the [below instructions](#compiling-with-eclipse).
 
