@@ -36,7 +36,12 @@ configurations {
 	testImplementation.extendsFrom junit
 }
 
+task updateDb4oGit(type: Exec) {
+	commandLine 'git', 'submodule', 'update', '--init'
+}
+
 task compileDb4o(type: Exec) {
+	dependsOn updateDb4oGit
 	// See https://bugs.freenetproject.org/view.php?id=7058
 	outputs.upToDateWhen { file('db4o-7.4/db4o.jar').exists() }
 	workingDir 'db4o-7.4'
@@ -171,5 +176,7 @@ test {
 clean {
 	[ 'build-test', 'test-coverage', 'dist' ].each { // Beyond defaults also delete Ant's output
 		delete "${projectDir}/" + it }
+	
+	dependsOn updateDb4oGit // Get db4o git repository so the below ant command has its build.xml
 	doLast { exec { workingDir 'db4o-7.4' ; commandLine 'ant','clean' } }
 }

@@ -88,9 +88,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: plugin-Freetalk # Available via: "$GITHUB_WORKSPACE/plugin-Freetalk"
-        # FIXME: The Gradle script should init submodules automatically like the Ant one did.
-        # Remove the command for that from the README.md once you implement it.
-        submodules: true
     
     - name: Compile Freenet Git repository if no cache hit
       if: steps.cache.outputs.cache-hit != 'true'
