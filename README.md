@@ -24,7 +24,7 @@ It intends to do so by:
 
 As of 2026 Freetalk is currently in development by
 [xor-freenet](https://github.com/xor-freenet).  
-Development news are posted on the [FMS](https://github.com/freenet/wiki/wiki/FMS) board `freenet`
+Development news are posted on the [FMS](https://github.com/hyphanet/wiki/wiki/FMS) board `freenet`
 in threads called `Freetalk development news YYYY-MM`.  
 As WoT is the foundation of Freetalk, for some periods of time the focus of development may be on
 WoT instead. During those periods there may be no Freetalk thread, then see the threads called
