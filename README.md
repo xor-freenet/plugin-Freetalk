@@ -22,11 +22,13 @@ It intends to do so by:
 
 ## Status
 
-As of 2025 Freetalk is currently in active development by
+As of 2026 Freetalk is currently in development by
 [xor-freenet](https://github.com/xor-freenet).  
-Development news are posted about every 1-3 weeks on the
-[FMS](https://github.com/freenet/wiki/wiki/FMS) board `freenet` in threads called
-`Freetalk development news YYYY-MM`.
+Development news are posted on the [FMS](https://github.com/freenet/wiki/wiki/FMS) board `freenet`
+in threads called `Freetalk development news YYYY-MM`.  
+As WoT is the foundation of Freetalk, for some periods of time the focus of development may be on
+WoT instead. During those periods there may be no Freetalk thread, then see the threads called
+`Web of Trust development news YYYY-MM`.
 
 ## Contributing
 
@@ -43,8 +45,8 @@ because:
 
 ## Usage
 
-As of 2025 Freetalk is currently in active development (see [above](#status)) and **NOT**
-intended to be used.  
+As of 2026 Freetalk is currently in development (see [above](#status)) and **NOT** intended to be
+used.  
 It will first have to be changed to use WoT's new `event-notifications` API, otherwise it will be
 very slow.
 
