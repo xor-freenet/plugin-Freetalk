@@ -22,7 +22,7 @@ dependencies {
 	implementation fileTree(dir: '../fred/build/output/', include: '*.jar')
 	compileOnly files('db4o-7.4/db4o.jar')
 	if(System.getenv('FREETALK__DOWNLOAD_DEPENDENCIES') == '1')
-		junit('junit:junit:4.11') // Hamcrest is automatically included as transitive dependency.
+		junit('junit:junit:4.13.2') // Hamcrest is automatically included as transitive dependency.
 	else
 		junit files('/usr/share/java/junit4.jar', '/usr/share/java/hamcrest-core.jar')
 }
