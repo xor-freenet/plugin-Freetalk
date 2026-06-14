@@ -152,7 +152,7 @@ jobs:
       run: |
         set -o errexit
         if [ "${{runner.os}}" = 'Linux' ] &&
-           [ "${{matrix.java-version}}" = "${{FREENET_MINIMUM_JAVA_VERSION}}" ] ; then
+           [ "${{matrix.java-version}}" = "$FREENET_MINIMUM_JAVA_VERSION" ] ; then
            
            echo "Uploading Freetalk JAR to Freenet..."
            # FIXME: Add the script from WoT and adapt it to Freetalk & GitHub Actions.
