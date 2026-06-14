@@ -147,15 +147,16 @@ jobs:
         # reproduce failed test runs. Also prevents the 10 minute build timeout.
         FREETALK__SHOW_GRADLE_TEST_OUTPUT=1 gradle clean test jar
 
-# FIXME: Adapt to Freetalk and GitHub Actions (is Travis CI code currently) and enable.
-# Will require adding "python3-pip" to the list of apt packages to install, see above at
-# "name: Install apt packages".
-# 
-# deploy:
-#   provider: script
-#   # Prevent Travis from deleting the JAR before we can deploy it (wtf?)
-#   skip_cleanup: true
-#   script: ./.travis.upload-jar-to-freenet.sh
-#   on:
-#     all_branches: true
-#     condition: $TRAVIS_JDK_VERSION = "openjdk$FREENET_MINIMUM_JAVA_VERSION"
+    - name: Upload Freetalk JAR to Freenet
+      shell: bash
+      run: |
+        set -o errexit
+        if [ "${{runner.os}}" = 'Linux' ] &&
+           [ "${{matrix.java-version}}" = "${{FREENET_MINIMUM_JAVA_VERSION}}" ] ; then
+           
+           echo "Uploading Freetalk JAR to Freenet..."
+           # FIXME: Add the script from WoT and adapt it to Freetalk & GitHub Actions.
+           # Will require adding "python3-pip" to the list of apt packages to install, see above at
+           # "name: Install apt packages".
+           ./.travis.upload-jar-to-freenet.sh
+        fi
