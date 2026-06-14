@@ -132,8 +132,12 @@ jobs:
         echo 'fred version:'
         unzip -qc '../fred/build/output/freenet.jar' 'META-INF/MANIFEST.MF' \
           | fgrep 'Implementation-Version:'
+        
+        # As of 2026-06-14 the Gradle on GitHub Actions is too new to work on Java versions as old
+        # as FREENET_MINIMUM_JAVA_VERSION. Thus Freetalk will use fred's Gradle wrapper.
+        cp -a "$GITHUB_WORKSPACE/fred/gradlew" ./gradlew
         echo 'gradle version:'
-        gradle --version
+        ./gradlew --version
         
         if [ "${{runner.os}}" != 'Linux' ] ; then
             # We can't obtain the dependencies from /usr/share so download them instead.
@@ -146,7 +150,7 @@ jobs:
         ## tools/compare-gradle-tests-with-ant-tests
         # Show stdout/stderr so random seeds of failed tests can be obtained by developers to
         # reproduce failed test runs. Also prevents the 10 minute build timeout.
-        FREETALK__SHOW_GRADLE_TEST_OUTPUT=1 gradle clean test jar
+        FREETALK__SHOW_GRADLE_TEST_OUTPUT=1 ./gradlew clean test jar
 
     - name: Upload Freetalk JAR to Freenet
       shell: bash
