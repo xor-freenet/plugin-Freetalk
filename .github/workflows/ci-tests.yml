@@ -164,4 +164,6 @@ jobs:
            # Will require adding "python3-pip" to the list of apt packages to install, see above at
            # "name: Install apt packages".
            ./.travis.upload-jar-to-freenet.sh
+        else
+            echo "Not uploading: Only doing so on Linux with Java $FREENET_MINIMUM_JAVA_VERSION."
         fi
