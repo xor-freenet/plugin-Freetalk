@@ -148,11 +148,14 @@ jobs:
             # We can't obtain the dependencies from /usr/share so download them instead.
             export FREETALK__DOWNLOAD_DEPENDENCIES=1
         fi
+        
         # To test the Ant and Gradle builders against each other uncomment the following.
         # (The scripts will use ./gradlew if there is one so we can ensure a specific Gradle version
         # works if that becomes necessary someday.)
         ## tools/compare-gradle-jars-with-ant-jars
         ## tools/compare-gradle-tests-with-ant-tests
+        
+        # Do the actual building & testing.
         # Show stdout/stderr so random seeds of failed tests can be obtained by developers to
         # reproduce failed test runs. Also prevents the 10 minute build timeout.
         FREETALK__SHOW_GRADLE_TEST_OUTPUT=1 ./gradlew clean test jar
