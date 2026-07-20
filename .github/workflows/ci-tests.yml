@@ -138,6 +138,8 @@ jobs:
         
         # As of 2026-06-14 the Gradle on GitHub Actions is too new to work on Java versions as old
         # as FREENET_MINIMUM_JAVA_VERSION. Thus Freetalk will use fred's Gradle wrapper.
+        # An additional benefit is that dependency verification is enabled by this because the
+        # dependency verification metadata file is in dir "fred/gradle/".
         cp -a "$GITHUB_WORKSPACE/fred/gradle" "$GITHUB_WORKSPACE/fred/gradlew" .
         echo 'gradle version:'
         ./gradlew --version
