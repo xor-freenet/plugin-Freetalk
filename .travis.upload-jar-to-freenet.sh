@@ -4,8 +4,15 @@ set -o errexit
 set -o errtrace
 trap 'echo "Error at line $LINENO, exit code $?" >&2' ERR
 
-FILENAME="WebOfTrust-$(git describe --always)-built-on-$TRAVIS_JDK_VERSION.jar"
-URI="CHK@/$FILENAME"
+if [ $# -ne 2 ] ; then
+	echo "Syntax: $0 INPUT_FILENAME FILENAME_IN_CHK_URI" >&2
+	exit 1
+fi
+
+INPUT_FILENAME="$1"
+OUTPUT_FILENAME="$2"
+
+URI="CHK@/$OUTPUT_FILENAME"
 FCP_PORT=23874
 
 echo "Uploading WoT JAR to $URI..."
@@ -21,7 +28,7 @@ echo "Uploading WoT JAR to $URI..."
 
 # TODO: As of 2018-05-30 fcpupload's "--compress" also doesn't work.
 if ! time fcpupload --fcpPort=$FCP_PORT --wait --realtime \
-		"$URI" "$TRAVIS_BUILD_DIR/dist/WebOfTrust.jar" ; then
+		"$URI" "$INPUT_FILENAME" ; then
 
 	echo "Uploading WebOfTrust.jar to Freenet failed!" >&2
 	

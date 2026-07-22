@@ -172,7 +172,8 @@ jobs:
            # FIXME: Add the script from WoT and adapt it to Freetalk & GitHub Actions.
            # Will require adding "python3-pip" to the list of apt packages to install, see above at
            # "name: Install apt packages".
-           ./.travis.upload-jar-to-freenet.sh
+           ./.travis.upload-jar-to-freenet.sh "dist/Freetalk.jar" \
+             "Freetalk-$(git describe --always)-built-on-${{matrix.java-version}}.jar"
         else
             echo "Not uploading: Only doing so on Linux with Java $FREENET_MINIMUM_JAVA_VERSION."
         fi
