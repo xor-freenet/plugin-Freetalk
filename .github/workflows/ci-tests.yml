@@ -164,6 +164,7 @@ jobs:
       shell: bash
       run: |
         set -o errexit
+        cd "$GITHUB_WORKSPACE/plugin-Freetalk"
         if [ "${{runner.os}}" = 'Linux' ] &&
            [ "${{matrix.java-version}}" = "$FREENET_MINIMUM_JAVA_VERSION" ] ; then
            
