@@ -5,7 +5,7 @@ set -o errtrace
 trap 'echo "Error at line $LINENO, exit code $?" >&2' ERR
 
 if [ $# -ne 2 ] ; then
-	echo "Syntax: $0 INPUT_FILENAME FILENAME_IN_CHK_URI" >&2
+	echo "Syntax: $0 INPUT_FILENAME OUTPUT_FILENAME_IN_CHK_URI" >&2
 	exit 1
 fi
 
